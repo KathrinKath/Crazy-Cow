@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script>
+    <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
         function playNormalCowSound() {
           var audio = document.getElementById("normalCowSound");
@@ -29,7 +29,70 @@
           });
         });
       });
+    </script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to play cow sounds
+        function playNormalCowSound() {
+          var audio = document.getElementById("normalCowSound");
+          audio.currentTime = 0;
+          audio.play();
+        }
+
+        function playCrazyCowSound() {
+          var audio = document.getElementById("crazyCowSound");
+          audio.currentTime = 0;
+          audio.play();
+        }
+
+        // Function to select a random image from a given NodeList
+        function selectRandomImage(images) {
+          return images[Math.floor(Math.random() * images.length)];
+        }
+
+        // Randomly select and display images on page load
+        function displayRandomImages() {
+          // Get all images from normalCowImgs and crazyCowImgs
+          var normalCowImages = document.querySelectorAll(".normalCowImgs img");
+          var crazyCowImages = document.querySelectorAll(".crazyCowImgs img");
+
+          // Select random images from each category
+          var randomNormalCowImage = selectRandomImage(normalCowImages);
+          var randomCrazyCowImage = selectRandomImage(crazyCowImages);
+
+          // Hide all images initially
+          normalCowImages.forEach(function (img) {
+            img.style.display = "none";
+          });
+          crazyCowImages.forEach(function (img) {
+            img.style.display = "none";
+          });
+
+          // Display the randomly selected images
+          randomNormalCowImage.style.display = "block";
+          randomCrazyCowImage.style.display = "block";
+        }
+
+        // Event listeners for clicking on images to play sounds
+        var normalCowImages = document.querySelectorAll(".normalCowImgs img");
+        normalCowImages.forEach(function (img) {
+          img.addEventListener("click", function () {
+            playNormalCowSound();
+          });
+        });
+
+        var crazyCowImages = document.querySelectorAll(".crazyCowImgs img");
+        crazyCowImages.forEach(function (img) {
+          img.addEventListener("click", function () {
+            playCrazyCowSound();
+          });
+        });
+
+        // Call the function to display random images on page load
+        displayRandomImages();
+      });
     </script>
+    <link rel="icon" href="./Pictures/logo.jpeg" />
     <title>Crazy Cow</title>
   </head>
   <body>
