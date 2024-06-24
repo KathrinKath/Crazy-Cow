@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function playNormalCowSound() {
+          var audio = document.getElementById("normalCowSound");
+          audio.currentTime = 0;
+          audio.play();
+        }
+        function playCrazyCowSound() {
+          var audio = document.getElementById("crazyCowSound");
+          audio.currentTime = 0;
+          audio.play();
+        }
+        var normalCowImages = document.querySelectorAll(".normalCowImgs img");
+        normalCowImages.forEach(function (img) {
+          img.addEventListener("click", function () {
+            playNormalCowSound();
+          });
+        });
+        var crazyCowImages = document.querySelectorAll(".crazyCowImgs img");
+        crazyCowImages.forEach(function (img) {
+          img.addEventListener("click", function () {
+            playCrazyCowSound();
+          });
+        });
+      });
+    </script>
+    <title>Crazy Cow</title>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <h1>Crazy Cow</h1>
+      </div>
+    </header>
+    <main>
+      <div class="cows">
+        <div class="normalCowImgs">
+          <div class="small-title">
+            <h2>Normal Cow</h2>
+          </div>
+          <img src="./Pictures/Designer (4).jpeg" alt="Normal cow" />
+          <img src="./Pictures/Designer (5).jpeg" alt="Normal cow" />
+          <img src="./Pictures/Designer (6).jpeg" alt="Normal cow" />
+          <img src="./Pictures/Designer (7).jpeg" alt="Normal cow" />
+        </div>
+        <div class="crazyCowImgs">
+          <div class="small-title">
+            <h2>Crazy Cow</h2>
+          </div>
+          <img src="./Pictures/Designer.jpeg" alt="Crazy cow" />
+          <img src="./Pictures/Designer (1).jpeg" alt="Crazy cow" />
+          <img src="./Pictures/Designer (3).jpeg" alt="Crazy cow" />
+          <img src="./Pictures/Designer (3).jpeg" alt="Crazy cow" />
+        </div>
+      </div>
+      <audio id="normalCowSound" src="./assets/Normal-Cow.mp3"></audio>
+      <audio id="crazyCowSound" src="./assets/Crazy-Cow.mp3"></audio>
+    </main>
+  </body>
+</html>
